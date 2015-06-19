@@ -1,0 +1,50 @@
+<template name = "submit">
+	{{#if currentUser}}
+		{{#if inputData}}
+		<h1>Edit a post</h1>
+		{{#with inputData}}
+			<form id = "editInfo">
+				Title of Post: <input type="text" name="title" value="{{title}}"><br/>
+				Name of Poster: <input type="text" name="title" value="{{name}}"><br/>
+				Name of Collector: <input type="text" name="name_of_collector" value="{{name_of_collector}}"><br/>
+				Post Content: <input type="text" name="post_content" value="{{post_content}}"><br/>
+				<div>
+    				<a href="#" id="start_button">Dictate</a>
+  				</div>
+ 
+  				<div id="results" class="bg-info">
+	  				<h1>Results</h1>
+   					<span id="final_span" class="final"></span>
+    				<span id="interim_span" class="interim"></span>
+    			</div>
+				<!-- Post Content: <textarea name = "post_content" rows = "3"> </textarea><br/> -->
+				Picture: <input type="url" name="picture" value="{{picture}}"><br/>
+				Date Submitted: <input type = "date" name="date" value = "{{date}}"><br/>
+				<input type="submit">
+			</form>
+		{{/with}}
+		{{else}}
+		<h1>Create a post</h1>
+		<form id="inputInfo">
+				Title of Post: <input type="text" name="title" value="{{title}}"><br/>
+				Name of Poster: <input type="text" name="title" value="{{name}}"><br/>
+				Name of Collector: <input type="text" name="name_of_collector" value="{{name_of_collector}}"><br/>
+				Post Content: <input type="text" name="post_content" value="{{post_content}}"><br/>
+				<div>
+    				<a href="#" id="start_button">Dictate</a>
+  				</div>
+ 
+  				<div id="results" class="bg-info">
+	  				<h1>Results</h1>
+   					<span id="final_span" class="final"></span>
+    			</div>
+				Picture: <input type="url" name="picture" value="{{picture}}"><br/>
+				Date Submitted: <input type = "date" name="date" value = "{{date}}"><br/>
+				<input type="submit">
+			</form>
+		{{/if}}
+	{{else}}
+		<h2>You must be logged in to see the user profiles</h2>
+	{{/if}}
+
+</template>
