@@ -4,8 +4,8 @@
 		<h1>Edit a post</h1>
 		{{#with inputData}}
 			<form id = "editInfo">
-				Title of Post: <input type="text" name="title" value="{{title}}"><br/>
-				Name of Poster: <input type="text" name="title" value="{{name}}"><br/>
+				Title of Post: <input type="text" name="posttitle" value="{{posttitle}}"><br/>
+				Name of Poster: <input type="text" name="postername" value="{{postername}}"><br/>
 				Name of Collector: <input type="text" name="name_of_collector" value="{{name_of_collector}}"><br/>
 				Post Content: <input type="text" name="post_content" value="{{post_content}}"><br/>
 				<div>
@@ -17,7 +17,6 @@
    					<span id="final_span" class="final"></span>
     				<span id="interim_span" class="interim"></span>
     			</div>
-				<!-- Post Content: <textarea name = "post_content" rows = "3"> </textarea><br/> -->
 				Picture: <input type="url" name="picture" value="{{picture}}"><br/>
 				Date Submitted: <input type = "date" name="date" value = "{{date}}"><br/>
 				<input type="submit">
@@ -26,8 +25,8 @@
 		{{else}}
 		<h1>Create a post</h1>
 		<form id="inputInfo">
-				Title of Post: <input type="text" name="title" value="{{title}}"><br/>
-				Name of Poster: <input type="text" name="title" value="{{name}}"><br/>
+				Title of Post: <input type="text" name="posttitle" value="{{posttitle}}"><br/>
+				Name of Poster: <input type="text" name="postername" value="{{postername}}"><br/>
 				Name of Collector: <input type="text" name="name_of_collector" value="{{name_of_collector}}"><br/>
 				Post Content: <input type="text" name="post_content" value="{{post_content}}"><br/>
 				<div>
@@ -44,7 +43,7 @@
 			</form>
 		{{/if}}
 	{{else}}
-		<h2>You must be logged in to see the user profiles</h2>
+		<h2>You must be logged in to see the submitted posts</h2>
 	{{/if}}
 
 </template>

@@ -1,0 +1,43 @@
+body {
+  font: 14px/1.4 arial;
+}
+
+.images{
+  width: 150%;
+}
+
+.imgWrap {
+  position: relative;
+  height: 200px;
+  width: 257px;
+}
+
+.imgDescription {
+  position: absolute;
+
+  top: 100%;
+  left: 50%;
+  background: rgba(0, 0, 0, .75);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+}
+
+
+.imgWrap:hover .imgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+.blur img {
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.blur img:hover {
+  -webkit-filter: blur(5px);
+}

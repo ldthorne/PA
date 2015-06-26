@@ -99,15 +99,15 @@ Template.submit.helpers({
 		"submit #editInfo": function(event){
 			event.preventDefault();
 
-			var title = event.target.title.value;
-			var name = event.target.name.value;
+			var posttitle = event.target.posttitle.value;
+			var postername = event.target.postername.value;
 			var name_of_collector = event.target.name_of_collector.value;
 			var post = event.target.post_content.value;
 			var date = event.target.date.value;
 			var picture = event.target.picture.value
 
 			Posts.update(this._id,
-				{$set:{title:title, name:name, name_of_collector:name_of_collector, post:post, date:date, picture:picture}});
+				{$set:{posttitle:posttitle, postername:postername, name_of_collector:name_of_collector, post:post, date:date, picture:picture}});
 
 			Router.go('/submittedPosts');
 			
@@ -116,14 +116,14 @@ Template.submit.helpers({
 		"submit #inputInfo": function(event){
 			event.preventDefault();
 
-			var title = event.target.title.value;
-			var name = event.target.name.value;
+			var posttitle = event.target.posttitle.value;
+			var postername = event.target.postername.value;
 			var name_of_collector = event.target.name_of_collector.value;
 			var post = event.target.post_content.value;
 			var date = event.target.date.value;
 			var picture = event.target.picture.value
 
-			Posts.insert({uid:Meteor.userId(), title:title, name:name, name_of_collector:name_of_collector, post:post, date:date, picture:picture});
+			Posts.insert({posttitle:posttitle, postername:postername, name_of_collector:name_of_collector, post:post, date:date, picture:picture});
 
 			Router.go('/submittedPosts');
 			
