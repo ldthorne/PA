@@ -122,8 +122,9 @@ Template.submit.helpers({
 			var post = event.target.post_content.value;
 			var date = event.target.date.value;
 			var picture = event.target.picture.value
+      var uid = Meteor.userId();
 
-			Posts.insert({posttitle:posttitle, postername:postername, name_of_collector:name_of_collector, post:post, date:date, picture:picture});
+			Posts.insert({posttitle:posttitle, uid:uid, postername:postername, name_of_collector:name_of_collector, post:post, date:date, picture:picture});
 
 			Router.go('/submittedPosts');
 			
