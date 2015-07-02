@@ -1,4 +1,3 @@
-Session.set("currentTime", Date.now())
 
 function FireflyNet(x,y,r,c) {
 	this.x=x; 
@@ -14,11 +13,24 @@ FireflyNet.prototype.caught = function(f) {
 
 Session.set("dead", 0);
 Session.set("currentTime", Date());
+var remainingTime = 500;
+var countdown = new ReactiveCountdown(remainingTime);
+
 Template.fireflyGame.helpers({
 	fliesfunc: function(){return Session.get("dead")},
 	allDead: function(){return (Session.get("dead")==200)},
 	remainingAlive: function(){return (200-Session.get("dead"))},
-	timeElapsed: function(){return (Session.get("currentTime")-lastTime)}
+	timeElapsed: function(){return (Session.get("currentTime")-lastTime)},
+
+	'getcountdown': function(){
+		return countdown.get();
+	},
+	'timeSpent': function(){
+		var currentTime = countdown.get();
+		var tTime = remainingTime
+		totalTimeSpent = tTime-currentTime;
+		return totalTimeSpent;
+	},
 });
 
 
@@ -141,16 +153,20 @@ function gameLoop(){
 drawIt = draw;
 var running = false;
 
+
+
 Template.fireflyGame.events({
 	"click #startgame": function(event){
 
 		if (!running) {
+			countdown.start(function(){});
 			lastTime = (new Date()).getTime();
 			running=true;
 			gameLoop();
 			$("#startgame").html("Stop");
 
 		} else {
+			countdown.stop(function(){});
 			running=false;
 			$("#startgame").html("Start");
 		}
@@ -159,11 +175,11 @@ Template.fireflyGame.events({
 	"submit #submitScore": function(event){
 			event.preventDefault();
 
-			var timeElapsed = event.target.timeElapsed.value;
+			// var timeSpent = event.target.timeSpent.value;
       		var uid = Meteor.userId();
       		var name = event.target.name.value;
 
-			Scores.insert({uid:uid, timeElapsed:timeElapsed, name:name});
+			Scores.insert({uid:uid, timeTook:totalTimeSpent, name:name});
 
 			Router.go('/leaderboard');
 			
