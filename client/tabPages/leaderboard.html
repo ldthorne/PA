@@ -1,0 +1,23 @@
+<template name = "leaderboard">
+	<h1>Leaderboard</h1>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+			<th>Name</th>
+			<th>Time Taken</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each scores}}
+				{{> scorerow}}
+			{{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="scorerow">
+	<tr>
+		<td>{{name}}</td>
+		<td>{{timeElapsed}}</td>
+	</tr>
+</template>

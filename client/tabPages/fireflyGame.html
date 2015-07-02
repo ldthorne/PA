@@ -1,0 +1,29 @@
+<template name = "fireflyGame">
+	<!-- {{#if currentUser}} -->
+		<div class="bg-info">
+		<h1>Firefly capture </h1> 
+		<h4>Capture all the fireflies as fast possible!</h4> <hr>
+		<h3>Dead fireflies: {{fliesfunc}} / 200</h3>
+		<!-- <h4>It's been {{timeElapsed}} seconds since you started</h4> -->
+		<h4>
+			{{#if allDead}}
+			<form id="submitScore">
+				You captured them all! It took you {{timeElapsed}} seconds.
+				Submit your time to the leaderboard!
+				What's your name? <input type="text" name="name" value="{{name}}"><br/>
+				<input type="submit">
+			</form>
+			{{else}}
+			There are still {{remainingAlive}} fireflies uncaptured!
+			{{/if}}
+		</h4>
+		<button id="startgame">Start</button><br/>
+
+		<canvas id="gameboard" width="500" height="500">
+			Your browser does not support canvases. Try Google Chrome!
+		</canvas>
+		</div>
+	<!-- {{else}} -->
+		<h1>Sign in to play this awesome game!</h1>
+	<!-- {{/if}} -->
+</template>

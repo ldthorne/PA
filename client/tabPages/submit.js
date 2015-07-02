@@ -50,7 +50,7 @@ if ('webkitSpeechRecognition' in window) {
       }
       //final_transcript = capitalize(final_transcript);
       final_span.innerHTML = linebreak(final_transcript);
-      interim_span.innerHTML = linebreak(interim_transcript);
+      // interim_span.innerHTML = linebreak(interim_transcript);
 	  
     };
 }
@@ -75,7 +75,7 @@ function startDictation(event) {
   recognition.lang = 'en-US';
   recognition.start();
   final_span.innerHTML = '';
-  interim_span.innerHTML = '';
+  // interim_span.innerHTML = '';
 }
 
 

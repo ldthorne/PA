@@ -11,5 +11,5 @@ twbs:bootstrap
 jquery
 ian:accounts-ui-bootstrap-3
 accounts-password
-fezvrasta:bootstrap-material-design-fullpalette
 matteodem:easy-search
+fezvrasta:bootstrap-material-design-fullpalette
